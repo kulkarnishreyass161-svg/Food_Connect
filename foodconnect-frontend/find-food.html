@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Food | FoodConnect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="find-food.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="nav-wrap">
+
+        <a href="index.html" class="brand">
+            <span class="brand-mark"><img src = "assets/Food_Connect_Logo.png"></span>
+            <span>FoodConnect</span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="find-food.html" class="active">Find Food</a>
+            <a href="profile.html">My Profile</a>
+            <a href="my-requests.html">My Requests</a>
+        </nav>
+
+        <a href="profile.html" class="nav-profile">My Account</a>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <p class="eyebrow">FIND · REQUEST · SERVE</p>
+
+        <h1>Good food deserves<br>to reach the right hands.</h1>
+
+        <p class="hero-description">
+            Discover available food donations around you.
+            Connect with donors and request fresh surplus food
+            for the communities you serve.
+        </p>
+
+        <div class="hero-stats">
+            <div>
+                <strong>Discover</strong>
+                <span>Available donations</span>
+            </div>
+
+            <div>
+                <strong>Connect</strong>
+                <span>With local donors</span>
+            </div>
+
+            <div>
+                <strong>Make an impact</strong>
+                <span>Reduce food waste</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SEARCH AND FILTERS -->
+
+<main class="page-container">
+
+    <section class="search-panel">
+
+        <div class="search-heading">
+            <div>
+                <p class="section-eyebrow">EXPLORE DONATIONS</p>
+                <h2>Find available food</h2>
+                <p>Search for food donations that match your requirements.</p>
+            </div>
+        </div>
+
+        <div class="filter-grid">
+
+            <div class="field search-field">
+                <label for="searchInput">Search donations</label>
+
+                <div class="input-wrap">
+                    <span class="search-symbol"></span>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Food name, donor or location..."
+                    >
+                </div>
+            </div>
+
+
+            <div class="field">
+                <label for="categoryFilter">Food category</label>
+
+                <select id="categoryFilter">
+                    <option value="all">All categories</option>
+                    <option value="Cooked meals">Cooked meals</option>
+                    <option value="Fruits & vegetables">Fruits & vegetables</option>
+                    <option value="Bakery">Bakery</option>
+                    <option value="Dairy">Dairy</option>
+                    <option value="Packaged food">Packaged food</option>
+                    <option value="Grains & pulses">Grains & pulses</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+
+            <div class="field">
+                <label for="distanceFilter">Distance</label>
+
+                <select id="distanceFilter">
+                    <option value="all">Any distance</option>
+                    <option value="2">Within 2 km</option>
+                    <option value="5">Within 5 km</option>
+                    <option value="10">Within 10 km</option>
+                    <option value="20">Within 20 km</option>
+                </select>
+            </div>
+
+
+            <div class="field">
+                <label for="sortFilter">Sort donations</label>
+
+                <select id="sortFilter">
+                    <option value="nearest">Nearest first</option>
+                    <option value="urgent">Expiring soon</option>
+                    <option value="newest">Newest first</option>
+                </select>
+            </div>
+
+        </div>
+
+
+        <div class="search-bottom">
+
+            <div class="location-area">
+
+                <button type="button" id="useLocationBtn" class="location-btn">
+                    <span class="location-icon"></span>
+                    Use My Current Location
+                </button>
+
+                <span id="locationMessage" class="location-message">
+                    Enable location to find donations near you.
+                </span>
+
+            </div>
+<label class="veg-toggle">
+    <input type="checkbox" id="vegOnlyFilter">
+    <span class="toggle-track"></span>
+    <span>Vegetarian only</span>
+</label>
+            <button type="button" id="clearFiltersBtn" class="clear-btn">
+                Clear filters
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="content-layout">
+
+        <section class="donations-section">
+
+            <div class="results-header">
+
+                <div>
+                    <p class="section-eyebrow">FOOD AVAILABLE NEAR YOU</p>
+                    <h2>Available donations</h2>
+                </div>
+
+                <span id="resultsCount" class="results-count">
+                    Loading donations...
+                </span>
+
+            </div>
+
+
+            <div class="donation-grid" id="donationGrid"></div>
+
+
+            <div id="emptyState" class="empty-state" hidden>
+
+                <div class="empty-icon">FC</div>
+
+                <h2>No donations found</h2>
+
+                <p>
+                    We couldn't find donations matching your search.
+                    Try changing your filters or search again.
+                </p>
+
+                <button type="button" id="emptyClearBtn" class="primary-btn">
+                    Clear filters
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- MY REQUESTS -->
+
+        <aside class="requests-panel" id="myRequests">
+
+            <div class="requests-heading">
+
+                <div class="requests-icon">R</div>
+
+                <div>
+                    <p class="section-eyebrow">YOUR ACTIVITY</p>
+                    <h2>My Requests</h2>
+                </div>
+
+            </div>
+
+            <p id="requestsIntro" class="requests-intro">
+                Your food requests will appear here.
+            </p>
+
+            <div id="requestList" class="request-list"></div>
+
+            <a href="my-requests.html" class="all-requests-link">
+                View all requests
+                <span>→</span>
+            </a>
+
+        </aside>
+
+    </div>
+
+</main>
+
+
+<!-- DONATION DETAILS MODAL -->
+
+<div class="modal-overlay" id="detailsModal">
+
+    <div class="details-modal">
+
+        <button type="button" class="close-modal" id="closeModal"
+                aria-label="Close">&times;</button>
+
+        <div class="modal-image-wrap">
+            <img id="modalImage" src="" alt="Food donation">
+        </div>
+
+        <div class="modal-content">
+
+            <p class="section-eyebrow">DONATION DETAILS</p>
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalDonor" class="modal-donor"></p>
+
+            <div id="modalFacts" class="modal-facts"></div>
+
+            <div class="modal-description">
+                <h3>About this donation</h3>
+                <p id="modalDescription"></p>
+            </div>
+
+            <button type="button" id="modalRequestButton" class="primary-btn modal-request-btn">
+                Request this food
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+
+<script src="find-food.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FoodConnect donor dashboard">
+
+    <title>Donor Dashboard | FoodConnect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="donor-dashboard.css">
+    <script src="donor-dashboard.js" defer></script>
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="index.html" class="logo" aria-label="FoodConnect home">
+        <span class="logo-icon" aria-hidden="true"><img src = "assets/Food_Connect_Logo.png"></span>
+        <span>FoodConnect</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="donation.html">Donate Food</a>
+        <a href="donor-dashboard.html" class="active">Donor Dashboard</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a class="outline-btn" href="donation.html">
+            + New donation
+        </a>
+
+        <button
+            class="avatar-button"
+            id="profileButton"
+            type="button"
+            aria-label="Open profile">
+            D
+        </button>
+    </div>
+
+</header>
+
+
+<main class="page-shell">
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            Donor dashboard
+        </div>
+
+        <div class="hero-row">
+
+            <div>
+                <span class="eyebrow">YOUR KINDNESS IN ACTION</span>
+
+                <h1>Donor dashboard</h1>
+
+                <p class="hero-subtitle">
+                    Every meal shared makes a meaningful difference.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="hero-bottom">
+
+            <div class="welcome-copy">
+
+                <span class="welcome-kicker">WELCOME BACK</span>
+
+                <h2>
+                    Hello,
+                    <span id="donorName">Food Donor</span>
+                </h2>
+
+                <p>
+                    Here’s what’s happening with your food donations.
+                </p>
+
+            </div>
+
+            <a class="primary-btn" href="donation.html">
+                Donate food
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- DASHBOARD CONTENT -->
+
+    <section class="dashboard-content">
+
+        <!-- STATISTICS -->
+
+        <div class="section-heading">
+
+            <div>
+                <span class="eyebrow">AT A GLANCE</span>
+                <h2>Your impact so far</h2>
+            </div>
+        </div>
+
+
+        <div class="stats-grid" aria-label="Donation statistics">
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span class="stat-trend">ALL TIME</span>
+                </div>
+
+                <strong class="stat-number" data-count="24">24</strong>
+
+                <span class="stat-label">Total donations</span>
+
+                <span class="stat-foot">
+                    Food listings you've created
+                </span>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span class="stat-trend">ESTIMATED</span>
+                </div>
+
+                <strong class="stat-number" data-count="680">680</strong>
+
+                <span class="stat-label">Meals shared</span>
+
+                <span class="stat-foot">
+                    Meals reaching local communities
+                </span>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span class="stat-trend">IN PROGRESS</span>
+                </div>
+
+                <strong class="stat-number" data-count="3">3</strong>
+
+                <span class="stat-label">Active donations</span>
+
+                <span class="stat-foot">
+                    Available or awaiting pickup
+                </span>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span class="stat-trend">COMPLETED</span>
+                </div>
+
+                <strong class="stat-number" data-count="21">21</strong>
+
+                <span class="stat-label">Successful pickups</span>
+
+                <span class="stat-foot">
+                    Donations collected by recipients
+                </span>
+
+            </article>
+
+        </div>
+
+
+        <!-- MAIN DASHBOARD GRID -->
+
+        <div class="main-grid">
+
+
+            <!-- RECENT DONATIONS -->
+
+            <section class="panel donations-panel" id="donations">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span class="eyebrow">KEEP TRACK</span>
+
+                        <h2>Recent donations</h2>
+
+                        <p>
+                            Monitor the status of the food you’ve shared.
+                        </p>
+                    </div>
+
+                    <a href="donation.html" class="text-link">
+                        Add donation →
+                    </a>
+
+                </div>
+
+
+                <!-- SEARCH AND FILTER -->
+
+                <div class="toolbar">
+
+                    <label class="search-box">
+
+                        <input
+                            type="search"
+                            id="donationSearch"
+                            placeholder="Search donations..."
+                            aria-label="Search donations">
+
+                    </label>
+
+
+                    <select
+                        id="statusFilter"
+                        aria-label="Filter donations by status">
+
+                        <option value="all">All statuses</option>
+                        <option value="Available">Available</option>
+                        <option value="Pickup scheduled">Pickup scheduled</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                        <option value="Expired">Expired</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DONATION TABLE -->
+
+                <div class="table-wrap">
+
+                    <table class="donation-table">
+
+                        <thead>
+                            <tr>
+                                <th>Food donation</th>
+                                <th>Quantity</th>
+                                <th>Pickup / expiry</th>
+                                <th>Status</th>
+                                <th>
+                                    <span class="sr-only">Action</span>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="donationRows">
+                            <!-- Donation rows generated by JavaScript -->
+                        </tbody>
+
+                    </table>
+
+                    <div class="empty-state" id="emptyState" hidden>
+                        No donations match your search.
+                    </div>
+
+                </div>
+
+
+                <div class="panel-footer">
+
+                    <span>Showing your latest donations</span>
+
+                    <a href="#donations">
+                        View all donations →
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <aside class="side-column">
+
+                <section class="panel quick-panel">
+
+                    <div class="panel-heading compact-heading">
+
+                        <div>
+                            <span class="eyebrow">GET STARTED</span>
+                            <h2>Quick actions</h2>
+                        </div>
+
+                    </div>
+
+
+                    <a class="quick-action" href="donation.html">
+
+                        <span class="quick-action-content">
+                            <strong>Post a donation</strong>
+                            <small>Share surplus food</small>
+                        </span>
+
+                        <b>→</b>
+
+                    </a>
+
+
+                    <a class="quick-action" href="#donations">
+
+                        <span class="quick-action-content">
+                            <strong>Manage donations</strong>
+                            <small>Check listing status</small>
+                        </span>
+
+                        <b>→</b>
+
+                    </a>
+
+
+                    <a class="quick-action" href="profile.html">
+
+                        <span class="quick-action-content">
+                            <strong>Update profile</strong>
+                            <small>Edit your account details</small>
+                        </span>
+
+                        <b>→</b>
+
+                    </a>
+<a class = "quick-action" href = "reports.html"> 
+    <span class = "quick-action-content">
+    <strong> My Reports</strong>
+    <small> Reports</small>
+</span>
+ <b>→</b>
+ </a>
+                </section>
+
+
+                <!-- DONOR IMPACT CARD -->
+
+                <section class="impact-card">
+
+                    <span class="eyebrow">YOUR CONTRIBUTION</span>
+
+                    <h2>
+                        Making a difference, one meal at a time.
+                    </h2>
+
+                    <p>
+                        Your surplus food can become someone's
+                        nourishment. Thank you for helping reduce
+                        food waste and hunger.
+                    </p>
+
+                    <div class="impact-divider"></div>
+
+                    <a href="donation.html" class="impact-link">
+                        Share more food →
+                    </a>
+
+                </section>
+
+            </aside>
+
+        </div>
+
+
+        <!-- INCOMING REQUESTS -->
+
+        <section class="panel requests-panel">
+
+            <div class="panel-heading requests-heading">
+
+                <div>
+                    <span class="eyebrow">NGO CONNECTIONS</span>
+
+                    <h2>Incoming donation requests</h2>
+
+                    <p>
+                        Review requests received from NGOs.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div id="incomingRequestList">
+                <p class="loading-message">Loading requests...</p>
+            </div>
+
+        </section>
+
+
+        <!-- BOTTOM NOTE -->
+
+        <section class="bottom-note">
+
+            <div>
+                <strong>Thank you for sharing with care.</strong>
+
+                <p>
+                    Please keep food covered, mention allergens,
+                    and allow enough time for pickup before expiry.
+                </p>
+            </div>
+
+            <a href="donation.html">
+                Make another donation →
+            </a>
+
+        </section>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="page-footer">
+
+        <p>
+            Small actions. Big impact. Together for a hunger-free world.
+        </p>
+
+        <span>© 2026 FoodConnect</span>
+
+    </footer>
+
+</main>
+
+
+<!-- TOAST NOTIFICATION -->
+
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite">
+</div>
+
+</body>
+</html>

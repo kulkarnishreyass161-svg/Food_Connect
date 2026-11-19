@@ -1,0 +1,22 @@
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Logs
+*.log
+logs/
+
+# Installers and archives
+*.exe
+*.zip
+# Git and pgAdmin installers
+Git-2.56.1-64-bit.exe
+pgadmin4-9.19-x64.exe
+
+# Project ZIP backups
+backend.zip
+foodconnect-frontend.zip

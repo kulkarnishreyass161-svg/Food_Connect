@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#073b2d">
+
+    <title>FoodConnect | Map & Locations</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="maps.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <a class="brand" href="profile.html">
+            <span class="brand-mark">
+                <img src="assets/Food_Connect_Logo.png" alt="FoodConnect">
+            </span>
+            FoodConnect
+        </a>
+
+        <nav class="main-nav">
+            <a href="profile.html">Dashboard</a>
+            <a href="maps.html" class="active">Map & Locations</a>
+
+            <a href="food_delivery.html"
+               id="pickupDeliveryLink"
+               hidden>
+                Pickup & Delivery
+            </a>
+        </nav>
+
+        <div class="header-actions">
+            <div class="user-chip">
+                <span id="profileAvatar">U</span>
+                <strong id="profileName">User</strong>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-inner">
+
+            <p class="eyebrow">
+                <span class="eyebrow-line"></span>
+                FOODCONNECT LOCATION SERVICES
+            </p>
+
+            <div class="hero-heading-row">
+
+                <div>
+                    <h1>Connecting food<br>with the right places.</h1>
+
+                    <p class="hero-copy">
+                        Explore food pickup points, partner NGOs and
+                        volunteers through one connected location network.
+                        Find nearby resources and coordinate food redistribution
+                        more efficiently.
+                    </p>
+                </div>
+
+                <div class="hero-note">
+                    <span class="note-label">LOCATION NETWORK</span>
+                    <strong>Closer connections.<br>Less food waste.</strong>
+                </div>
+
+            </div>
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <article class="stat-card">
+                    <span class="stat-number" id="donorCount">0</span>
+                    <span class="stat-label">Food pickup points</span>
+                    <span class="stat-accent"></span>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-number" id="ngoCount">0</span>
+                    <span class="stat-label">Shared NGO locations</span>
+                    <span class="stat-accent"></span>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-number" id="volunteerCount">0</span>
+                    <span class="stat-label">Sharing volunteers</span>
+                    <span class="stat-accent"></span>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-number" id="foodCount">0</span>
+                    <span class="stat-label">Available donations</span>
+                    <span class="stat-accent"></span>
+                </article>
+
+            </section>
+
+        </div>
+
+    </section>
+
+
+    <main class="main-content">
+
+        <!-- LOCATION MAP PANEL -->
+        <section class="map-panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <p class="section-kicker">EXPLORE THE NETWORK</p>
+                    <h2>Map and Locations</h2>
+
+                    <p class="panel-description">
+                        Discover available food, partner organisations
+                        and volunteers across the FoodConnect network.
+                    </p>
+                </div>
+
+             
+
+            </div>
+
+
+            <!-- PRIVACY INFORMATION -->
+            <div class="privacy-note" id="privacyNote">
+                Volunteer and NGO locations appear only after the
+                account holder chooses to share their location.
+                Food pickup points appear when donors save pickup
+                coordinates with a donation.
+            </div>
+
+
+            <!-- LOCATION CONTROLS -->
+            <div class="location-toolbar">
+
+                <div class="location-toolbar-copy">
+                    <strong>Share your current location</strong>
+                    <span>
+                        Allow GPS access to display your location on the map.
+                    </span>
+                </div>
+
+                <button class="location-button" id="myLocationBtn">
+                    Share my location
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH AND FILTERS -->
+            <div class="toolbar">
+
+                <div class="filters">
+
+                    <button class="filter active" data-filter="all">
+                        All locations
+                    </button>
+
+                    <button class="filter" data-filter="donor">
+                        Food pickup
+                    </button>
+
+                    <button class="filter" data-filter="ngo">
+                        NGOs
+                    </button>
+
+                    <button class="filter" data-filter="volunteer">
+                        Volunteers
+                    </button>
+
+                </div>
+
+                <div class="search-box">
+                    <span class="search-symbol">SEARCH</span>
+
+                    <input
+                        id="searchInput"
+                        type="search"
+                        placeholder="Search food, NGO or area..."
+                    >
+                </div>
+
+            </div>
+
+
+            <!-- MAP AND LOCATION LIST -->
+            <div class="map-layout">
+
+                <div class="map-wrapper">
+                    <div id="map" aria-label="FoodConnect map"></div>
+                </div>
+
+                <aside class="sidebar">
+
+                    <div class="sidebar-heading">
+                        <div>
+                            <p class="section-kicker">MAP DIRECTORY</p>
+                            <h3>Locations</h3>
+                        </div>
+
+                        <button class="refresh-button" id="refreshMapBtn">
+                            Refresh map
+                        </button>
+                    </div>
+
+                    <p class="muted small">
+                        Select a location to view it on the map.
+                    </p>
+
+                    <div id="locationList" class="location-list">
+
+                        <p class="empty">
+                            Loading locations...
+                        </p>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+
+            <!-- MAP LEGEND -->
+            <div class="legend">
+
+                <span>
+                    <i class="dot blue"></i>
+                    Food pickup
+                </span>
+
+                <span>
+                    <i class="dot purple"></i>
+                    NGO
+                </span>
+
+                <span>
+                    <i class="dot orange"></i>
+                    Volunteer
+                </span>
+
+            </div>
+
+            <p class="map-footer-note">
+                Map data © OpenStreetMap contributors.
+                Location sharing is controlled by each account holder.
+            </p>
+
+        </section>
+
+
+        <!-- VOLUNTEER ROUTE PLANNER -->
+
+
+        <!-- BOTTOM INFORMATION -->
+        <section class="bottom-note">
+
+            <div class="bottom-note-mark"><img src = "assets/Food_Connect_Logo.png"></div>
+
+            <div>
+                <strong>Better connections create greater impact.</strong>
+
+                <p>
+                    FoodConnect brings donors, NGOs and volunteers
+                    together to make food redistribution more accessible.
+                </p>
+            </div>
+
+            <span class="bottom-note-tag">FOODCONNECT NETWORK</span>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <span>© 2026 FoodConnect. All rights reserved.</span>
+        <span>Map data © OpenStreetMap contributors.</span>
+    </footer>
+
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="maps.js"></script>
+
+</body>
+</html>

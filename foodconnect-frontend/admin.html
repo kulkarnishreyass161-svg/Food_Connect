@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | FoodConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html"><span class="brand-mark"><img src = "assets/Food_Connect_Logo.png"></span><span class="brand-name">FoodConnect<small>ADMIN CONSOLE</small></span></a>
+    <p class="nav-caption">WORKSPACE</p>
+    <nav class="navigation">
+      <button class="nav-item active" data-section="overview">Overview</button>
+      <button class="nav-item" data-section="users"> Manage users</button>
+      <button class="nav-item" data-section="donations"> Monitor donations</button>
+      <button class="nav-item" data-section="activity"> Verify activities</button>
+      <button class="nav-item" data-section="reports">Reports & analysis</button>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="security-note"><strong>Administrator workspace</strong><span>Restricted access to authorised admins.</span></div>
+      <button id="logoutBtn" class="logout-btn">Sign out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><p class="eyebrow">FOODCONNECT CONTROL CENTRE</p><h1 id="pageTitle">Overview</h1></div>
+      <div class="admin-user"><div class="avatar" id="adminInitials">AD</div><div><strong id="adminName">Administrator</strong><small>System administrator</small></div></div>
+    </header>
+
+    <div id="alertBox" class="alert" hidden></div>
+
+    <section class="section active" id="overviewSection">
+      <div class="section-intro"><div><h2>Platform at a glance</h2><p>Monitor FoodConnect operations and community impact.</p></div><button class="button secondary" id="refreshOverview">Refresh data</button></div>
+      <div class="stats-grid">
+        <article class="stat-card"><span>Total users</span><strong id="statUsers">—</strong><small>Registered accounts</small></article>
+        <article class="stat-card"><span>Total donations</span><strong id="statDonations">—</strong><small>Food listings created</small></article>
+        <article class="stat-card"><span>Delivery records</span><strong id="statDeliveries">—</strong><small>Pickup and delivery activity</small></article>
+        <article class="stat-card"><span>Completed deliveries</span><strong id="statCompleted">—</strong><small>Successfully completed</small></article>
+      </div>
+      <div class="two-column">
+        <article class="panel"><div class="panel-heading"><div><h3>Recent registrations</h3><p>Latest accounts created on the platform.</p></div><button class="text-button" data-goto="users">View users</button></div><div id="recentUsers" class="compact-list"><div class="loading">Loading users…</div></div></article>
+        <article class="panel"><div class="panel-heading"><div><h3>Recent donations</h3><p>Latest food listings submitted.</p></div><button class="text-button" data-goto="donations">View donations</button></div><div id="recentDonations" class="compact-list"><div class="loading">Loading donations…</div></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="usersSection">
+      <div class="section-intro"><div><h2>User management</h2><p>Review accounts, assign platform roles and control access.</p></div><button class="button secondary" id="refreshUsers">Refresh users</button></div>
+      <div class="toolbar"><input id="userSearch" type="search" placeholder="Search name, email or city"><select id="roleFilter"><option value="">All roles</option><option>DONOR</option><option>NGO</option><option>VOLUNTEER</option><option>ADMIN</option></select><select id="userStatusFilter"><option value="">All account statuses</option><option value="true">Active</option><option value="false">Inactive</option></select></div>
+      <div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>User</th><th>Contact</th><th>Role</th><th>Joined</th><th>Account</th><th>Actions</th></tr></thead><tbody id="usersTable"><tr><td colspan="6" class="loading">Loading users…</td></tr></tbody></table></div></div>
+    </section>
+
+    <section class="section" id="donationsSection">
+      <div class="section-intro"><div><h2>Donation monitoring</h2><p>Track food listings, donor details and donation status.</p></div><button class="button secondary" id="refreshDonations">Refresh donations</button></div>
+      <div class="toolbar"><input id="donationSearch" type="search" placeholder="Search food, donor or location"><select id="donationStatusFilter"><option value="">All statuses</option><option>Available</option><option>Pickup scheduled</option><option>Completed</option><option>Cancelled</option><option>Expired</option></select></div>
+      <div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>Food listing</th><th>Donor</th><th>Quantity</th><th>Location</th><th>Status</th><th>Created</th></tr></thead><tbody id="donationsTable"><tr><td colspan="6" class="loading">Loading donations…</td></tr></tbody></table></div></div>
+    </section>
+
+    <section class="section" id="activitySection">
+      <div class="section-intro"><div><h2>Activity verification</h2><p>Review recent platform events and verify user accounts.</p></div><button class="button secondary" id="refreshActivity">Refresh activity</button></div>
+      <div class="notice"><strong>Verification policy</strong><span>Only verify accounts after checking the organisation or volunteer details. Account verification is separate from email verification.</span></div>
+      <div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>Account</th><th>Role</th><th>Email</th><th>Joined</th><th>Verification</th><th>Action</th></tr></thead><tbody id="activityTable"><tr><td colspan="6" class="loading">Loading activity…</td></tr></tbody></table></div></div>
+      <div class="panel activity-panel"><div class="panel-heading"><div><h3>Recent delivery activity</h3><p>Latest pickup and delivery status updates.</p></div></div><div id="deliveryActivity" class="compact-list"><div class="loading">Loading delivery activity…</div></div></div>
+    </section>
+
+    <section class="section" id="reportsSection">
+      <div class="section-intro"><div><h2>Reports & analysis</h2><p>Summarise platform usage and export data for system analysis.</p></div><button class="button primary" id="exportReport">Export report CSV</button></div>
+      <div class="stats-grid report-stats">
+        <article class="stat-card"><span>Donor accounts</span><strong id="reportDonors">—</strong><small>Food contributors</small></article>
+        <article class="stat-card"><span>NGO accounts</span><strong id="reportNgos">—</strong><small>Recipient organisations</small></article>
+        <article class="stat-card"><span>Volunteer accounts</span><strong id="reportVolunteers">—</strong><small>Delivery community</small></article>
+        <article class="stat-card"><span>Available donations</span><strong id="reportAvailable">—</strong><small>Currently listed</small></article>
+      </div>
+      <div class="two-column">
+        <article class="panel"><div class="panel-heading"><div><h3>Donation status breakdown</h3><p>Current distribution of food listings.</p></div></div><div id="donationBreakdown" class="breakdown"></div></article>
+        <article class="panel"><div class="panel-heading"><div><h3>Delivery status breakdown</h3><p>Progress of delivery records.</p></div></div><div id="deliveryBreakdown" class="breakdown"></div></article>
+      </div>
+      <p class="report-footnote">Reports reflect the records available in the connected FoodConnect database at the time of generation.</p>
+    </section>
+    <footer class="footer">FoodConnect Admin Console <span>•</span> Efficient food redistribution</footer>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="roleModal" hidden>
+  <div class="modal">
+    <button class="modal-close" id="closeRoleModal" aria-label="Close">×</button>
+    <p class="eyebrow">USER MANAGEMENT</p><h2>Change user role</h2><p id="roleUserLabel" class="modal-description">Select a role for this account.</p>
+    <label for="newRole">New role</label>
+    <select id="newRole"><option value="DONOR">Donor</option><option value="NGO">NGO</option><option value="VOLUNTEER">Volunteer</option><option value="ADMIN">Administrator</option></select>
+    <div class="modal-actions"><button class="button secondary" id="cancelRole">Cancel</button><button class="button primary" id="saveRole">Save role</button></div>
+  </div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

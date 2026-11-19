@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Reports | FoodConnect</title>
+
+    <link rel="stylesheet" href="reports.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="topbar">
+    <a href="index.html" class="brand">
+        <img src="assets/Food_Connect_Logo.png" alt="FoodConnect">
+        <span>Food<span>Connect</span></span>
+    </a>
+
+    <nav>
+        <a href="#" id = "dashboardLink">Dashboard</a>
+        <a href="reports.html" class="active">My Reports</a>
+    </nav>
+
+    <button class="logout-btn" id="logoutBtn">Logout</button>
+</header>
+
+<main class="container">
+
+
+            <section class="page-heading">
+                <div>
+            <span class="eyebrow">ACTIVITY ANALYTICS</span>
+            <h1>My Reports</h1>
+            <p>Track your FoodConnect contributions and activities.</p>
+        </div>
+
+        <div class="role-label" id="roleLabel">Loading role...</div>
+    </section>
+
+    <section class="filter-panel">
+        <div class="filter-title">
+            <h2>Report Period</h2>
+            <span>Choose a date range to filter your records</span>
+        </div>
+
+        <div class="filters">
+            <div class="filter-field">
+                <label for="startDate">From date</label>
+                <input type="date" id="startDate">
+            </div>
+
+            <div class="filter-field">
+                <label for="endDate">To date</label>
+                <input type="date" id="endDate">
+            </div>
+
+            <button class="primary-btn" id="applyBtn">Apply Filters</button>
+            <button class="secondary-btn" id="resetBtn">Reset</button>
+        </div>
+    </section>
+
+    <section class="statistics-section">
+        <div class="section-heading">
+            <div>
+                <h2>Activity Overview</h2>
+                <p id="overviewDescription">Your activity summary</p>
+            </div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+            <div class="loading-card">Loading report statistics...</div>
+        </div>
+    </section>
+
+    <section class="records-section">
+
+        <div class="records-heading">
+            <div>
+                <h2>Detailed Activity Report</h2>
+                <p id="recordCount">Loading records...</p>
+            </div>
+
+            <div class="export-actions">
+                <button class="export-btn" id="csvBtn">
+                    Export CSV
+                </button>
+
+                <button class="export-btn pdf-btn" id="pdfBtn">
+                    Export PDF
+                </button>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead id="tableHead"></thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="8" class="empty-cell">
+                            Loading records...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>FoodConnect · Making food redistribution more efficient.</p>
+    </footer>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="reports.js"></script>
+
+</body>
+</html>

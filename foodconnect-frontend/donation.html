@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Share surplus food with your community through FoodConnect.">
+  <title>Donate Food | FoodConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="donation.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="FoodConnect home">
+      <span class="brand-mark"><img src = "assets/Food_Connect_Logo.png"></span><span>FoodConnect</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a class="active" href="#donation-form">Donate Food</a>
+      <a href= "donor-dashboard.html"> Donor Dashboard</a>
+      <a href = "profile.html"> My Profile</a>
+    </nav>
+
+   
+    <button class="menu-toggle" id="menuToggle" type="button"
+            aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="#">Home</a> / Donate food</p>
+        <p class="eyebrow">SHARE FOOD · SHARE KINDNESS</p>
+        <div class="hero-row">
+          <div>
+            <h1>Donate food</h1>
+            <p class="hero-subtitle">A fresh meal. A thoughtful gesture. A stronger community.</p>
+          </div>
+         
+        </div>
+        <div class="step-guide">
+          <span><b>01</b> Food details</span>
+          <span><b>02</b> Freshness and pickup</span>
+          <span><b>03</b> Food photos</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container donation-layout" id="donation-form">
+      <form class="donation-form" id="foodDonationForm" novalidate>
+        <section class="form-section">
+          <h2><span class="step">1</span>Food details</h2>
+
+          <div class="field">
+            <label for="foodName">Food name <span>*</span></label>
+            <input id="foodName" name="foodName" type="text"
+                   placeholder="e.g. Vegetable biryani &amp; paneer curry"
+                   maxlength="100" required>
+          </div>
+
+          <div class="field">
+            <label for="category">Food category <span>*</span></label>
+            <select id="category" name="category" required>
+              <option value="">Select category</option>
+              <option>Cooked meals</option>
+              <option>Fruits &amp; vegetables</option>
+              <option>Bakery</option>
+              <option>Dairy</option>
+              <option>Packaged food</option>
+              <option>Grains &amp; pulses</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="two-columns">
+            <div class="field">
+              <label for="quantity">Quantity <span>*</span></label>
+              <input id="quantity" name="quantity" type="number" min="0.1"
+                     step="0.1" placeholder="e.g. 25" required>
+            </div>
+            <div class="field">
+              <label for="unit">Unit <span>*</span></label>
+              <select id="unit" name="unit" required>
+                <option>Meals / servings</option>
+                <option>Kilograms</option>
+                <option>Grams</option>
+                <option>Litres</option>
+                <option>Millilitres</option>
+                <option>Packets</option>
+                <option>Boxes</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="details">Ingredients &amp; additional details <small>(optional)</small></label>
+            <textarea id="details" name="details" rows="4"
+              placeholder="Ingredients, allergens, packaging or special pickup instructions"></textarea>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2><span class="step">2</span>Freshness and pickup</h2>
+
+          <div class="two-columns">
+            <div class="field">
+              <label for="preparedAt">Preparation date &amp; time <span>*</span></label>
+              <input id="preparedAt" name="preparedAt" type="datetime-local" required>
+            </div>
+            <div class="field">
+              <label for="expiresAt">Expiry date &amp; time <span>*</span></label>
+              <input id="expiresAt" name="expiresAt" type="datetime-local" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="pickupLocation">Pickup location <span>*</span></label>
+            <input id="pickupLocation" name="pickupLocation" type="text"
+                   placeholder="Building, street, area, city and postcode"
+                   maxlength="250" required>
+                    <button
+        type="button"
+        id="shareLocationBtn"
+        class="location-button"
+    >
+        <span>Use My Current Location</span>
+    </button>
+
+    <p id="locationMessage" class="location-message">
+        Share your location to help volunteers find the food.
+    </p>
+          </div>
+        </section>
+
+        <section class="form-section photo-section">
+          <h2><span class="step">3</span>Food photos</h2>
+          <label class="upload-box" for="foodPhotos">
+            <span class="camera">📷</span>
+            <strong>Add photos of your food</strong>
+            <span>Choose photos</span>
+            <small>Optional · JPG, PNG or WebP · up to 4 photos, 5 MB each</small>
+          </label>
+          <input class="visually-hidden" id="foodPhotos" name="foodPhotos"
+                 type="file" accept="image/jpeg,image/png,image/webp" multiple>
+          <div class="photo-grid" id="photoPreview" aria-live="polite"></div>
+        </section>
+
+        <div class="form-footer">
+          <label class="confirm-check" for="safeConfirm">
+            <input id="safeConfirm" name="safeConfirm" type="checkbox" required>
+            <span>I confirm this food is safe to consume and the details are accurate.</span>
+          </label>
+          <p class="form-error" id="formError" role="alert"></p>
+          <div class="form-actions">
+            <button class="cancel-btn" type="reset">Cancel</button>
+            <button class="submit-btn" type="submit">Post donation <span>→</span></button>
+          </div>
+        </div>
+      </form>
+
+      <aside class="sidebar">
+        <p class="sidebar-heading">YOUR DONATION</p>
+        <article class="preview-card">
+         <div class="preview-image-wrap" id="previewImageWrap" hidden>
+    <img id="previewImage" alt="Uploaded food preview">
+    <span class="image-label">Donation preview</span>
+</div>
+          <div class="preview-content">
+            <p class="preview-kicker">FOOD DONATION</p>
+            <h3 id="previewName">Your food donation</h3>
+            <p class="preview-line"> <span id="previewQuantity">Quantity to be added</span></p>
+            <p class="preview-line"> <span id="previewLocation">Pickup location to be added</span></p>
+            <p class="preview-line"> <span id="previewPrepared">Preparation time to be added</span></p>
+            <p class="preview-line"> <span id="previewExpiry">Expiry time to be added</span></p>
+            <div class="preview-divider"></div>
+            <p class="availability"><span></span>Available for pickup</p>
+          </div>
+        </article>
+<!-- QR CODE SECTION -->
+<div class="qr-card" id="qrCard" hidden>
+    <h4>Donation QR Code</h4>
+
+    <p>
+        Your donation has been registered successfully.
+        This QR code will be used to verify food pickup and delivery.
+    </p>
+
+    <div id="donationQRCode"></div>
+
+    <p class="qr-reference">
+        Donation ID: <strong id="qrDonationId"></strong>
+    </p>
+
+    <button type="button" id="downloadQR">
+        Download QR Code
+    </button>
+</div>
+        <div class="care-note">
+          <h4>♡ Share with care</h4>
+          <ul>
+            <li>Keep food covered and stored safely.</li>
+            <li>Include allergens and clear pickup instructions.</li>
+            <li>Allow enough time for pickup before expiry.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type = "module" src="donation.js"></script>
+</body>
+</html>

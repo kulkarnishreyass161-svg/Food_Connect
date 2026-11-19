@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | FoodConnect</title>
+    <link rel="stylesheet" href="auth.css">
+    <script src="auth.js" defer></script>
+</head>
+<body>
+
+<main class="auth-layout">
+
+    <!-- LEFT IMAGE SECTION -->
+    <section class="auth-visual register-visual">
+
+        <a href="index.html" class="auth-brand">
+            <span class="brand-icon" aria-hidden="true">
+               <img src = "assets/Food_Connect_Logo.png">
+            </span>
+            FoodConnect
+        </a>
+
+        <div class="visual-content">
+            <h1>Small Acts of Sharing, Greater Impact.</h1>
+
+            <p>
+                Create your free account as a donor, NGO or volunteer in under a minute.
+            </p>
+
+            <ul>
+                <li>✓ &nbsp; Free forever for every community member</li>
+                <li>✓ &nbsp; Verified, safe and transparent network</li>
+                <li>✓ &nbsp; Track your personal impact live</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- RIGHT REGISTRATION FORM -->
+    <section class="auth-panel">
+
+        <div class="auth-content">
+
+            <div class="auth-top">
+                <a href="index.html" class="back-btn">←</a>
+
+                <p>
+                    Have an account?
+                    <a href="login.html">Sign in</a>
+                </p>
+            </div>
+
+            <div class="auth-heading">
+                <h2>Create account</h2>
+                <p>Step-by-step, it only takes a minute.</p>
+            </div>
+
+            <!-- PROGRESS BAR -->
+            <div class="progress-track">
+                <span id="progressFill"></span>
+            </div>
+
+
+            <form id="registerForm">
+
+                <!-- STEP 1 -->
+                <div class="form-step active" data-step="1">
+
+                    <label class="field-label">I am joining as</label>
+
+                  <div class="role-grid">
+
+    <!-- DONOR -->
+    <button type="button"
+        class="role-card selected"
+        data-role="Donor"
+        aria-pressed="true">
+
+      
+        <span class="role-name">Donor</span>
+        <span class="role-description">Share surplus food</span>
+        <span class="role-selection">✓</span>
+    </button>
+
+
+    <!-- NGO -->
+    <button type="button"
+        class="role-card"
+        data-role="NGO"
+        aria-pressed="false">
+
+       
+
+        <span class="role-name">NGO</span>
+        <span class="role-description">Support communities</span>
+        <span class="role-selection">✓</span>
+    </button>
+
+
+    <!-- VOLUNTEER -->
+    <button type="button"
+        class="role-card"
+        data-role="Volunteer"
+        aria-pressed="false">
+
+        
+        <span class="role-name">Volunteer</span>
+        <span class="role-description">Deliver with care</span>
+        <span class="role-selection">✓</span>
+    </button>
+
+</div>
+                    <input type="hidden" name="role"
+                        id="selectedRole" value="Donor">
+
+                    <div class="form-group">
+                        <label for="fullName">Full name</label>
+
+                        <input type="text" id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            autocomplete="name" required>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+
+                            <input type="email" id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+
+                            <input type="tel" id="phone"
+                                name="phone"
+                                placeholder="Enter 10-digit number"
+                                pattern="[0-9]{10}"
+                                maxlength="10"
+                                autocomplete="tel"
+                                required>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="submit-btn"
+                        id="continueBtn">
+                        Continue →
+                    </button>
+
+                    <p class="bottom-auth-text">
+                        Already a member?
+                        <a href="login.html">Sign in</a>
+                    </p>
+
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="form-step" data-step="2">
+
+                    <div class="step-description">
+                        <span>Step 2 of 2</span>
+                        <span id="roleCaption">Joining as Donor</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location</label>
+
+                        <input type="text" id="location"
+                            name="location"
+                            placeholder="Enter your city or area"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Create password</label>
+
+                        <div class="password-wrapper">
+                            <input type="password" id="password"
+                                name="password"
+                                placeholder="Enter password"
+                                minlength="8"
+                                autocomplete="new-password"
+                                required>
+
+                            <button type="button"
+                                class="password-toggle"
+                                data-target="password"
+                                aria-label="Show password"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"
+                                        stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="12" r="3"
+                                        stroke="currentColor" stroke-width="1.8"/>
+                                </svg></button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">
+                            Confirm password
+                        </label>
+
+                        <div class="password-wrapper">
+                            <input type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm your password"
+                                minlength="8"
+                                autocomplete="new-password"
+                                required>
+
+                            <button type="button"
+                                class="password-toggle"
+                                data-target="confirmPassword"
+                                aria-label="Show password"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"
+                                        stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="12" r="3"
+                                        stroke="currentColor" stroke-width="1.8"/>
+                                </svg></button>
+                        </div>
+                    </div>
+
+                    <label class="terms-row">
+                        <input type="checkbox" id="terms" required>
+                        <span>
+                            I agree to the Terms and Conditions
+                            and Privacy Policy.
+                        </span>
+                    </label>
+
+                    <div class="step-buttons">
+                        <button type="button" class="previous-btn"
+                            id="backStepBtn">
+                            ← Back
+                        </button>
+
+                        <button type="submit" class="submit-btn">
+                            Create Account →
+                        </button>
+                    </div>
+
+                    <p class="bottom-auth-text">
+                        Already a member?
+                        <a href="login.html">Sign in</a>
+                    </p>
+
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+
+</main>
+
+<div class="auth-toast" id="authToast"></div>
+
+</body>
+</html>

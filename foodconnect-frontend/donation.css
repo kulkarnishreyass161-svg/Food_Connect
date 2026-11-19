@@ -1,0 +1,959 @@
+
+/* ==========================================
+   FOODCONNECT - DONATE FOOD PAGE
+   Inspired by the uploaded reference design
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --green-950: #073B2D;
+    --green-900: #0A4937;
+    --green-800: #0D5A42;
+    --green-700: #087B55;
+    --green-600: #0D9B68;
+    --green-100: #E7F4ED;
+    --cream: #F8F5ED;
+    --cream-2: #F2EDE1;
+    --ink: #163D31;
+    --muted: #718078;
+    --line: #E4EAE4;
+    --white: #FFFFFF;
+  
+    --shadow: 0 18px 55px rgba(18, 54, 40, .09);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background:white;
+    color: var(--ink);
+    font-family: "DM Sans", Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.site-header {
+    height: 78px;
+    padding: 0 clamp(22px, 4.2vw, 68px);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid rgba(17, 68, 49, .07);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    font: 800 23px "Playfair Display", Georgia, serif;
+    color: var(--green-950);
+    white-space: nowrap;
+}
+
+.brand-mark {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: transparent;
+    border-radius: 11px;
+    box-shadow: none;
+}
+
+.brand-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 3vw, 43px);
+    color: #263C34;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.main-nav a {
+    padding: 29px 0 27px;
+    border-bottom: 2px solid transparent;
+    transition: .2s;
+}
+
+
+
+
+.outline-btn {
+    border: 1px solid var(--green-900);
+    color: var(--green-900);
+    background: transparent;
+    border-radius: 12px;
+    padding: 11px 19px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.outline-btn:hover {
+    background: var(--green-100);
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(33, 128, 88, .28),
+            transparent 28%
+        ),
+        linear-gradient(
+            120deg,
+            #073E2F,
+            #0B503B 58%,
+            #104E3B
+        );
+
+    color: white;
+    padding: 48px clamp(22px, 4.2vw, 68px) 95px;
+    overflow: hidden;
+    position: relative;
+    border: none;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 50%;
+    right: -130px;
+    top: -280px;
+    box-shadow:
+        0 0 0 48px rgba(255,255,255,.025),
+        0 0 0 96px rgba(255,255,255,.018);
+    pointer-events: none;
+}
+
+.container {
+    width: min(1440px, 100%);
+    margin: 0 auto;
+}
+
+.breadcrumb {
+    color: rgba(255,255,255,.62);
+    font-size: 12px;
+    margin-bottom: 27px;
+}
+
+.breadcrumb a {
+    color: var(--gold);
+}
+
+.hero-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.2px;
+    margin-bottom: 13px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+h1 {
+    color: white;
+    font-size: clamp(37px, 4.3vw, 59px);
+    line-height: 1.08;
+    letter-spacing: -.9px;
+    margin: 0;
+    max-width: 750px;
+}
+
+.hero-subtitle {
+    color: rgba(255,255,255,.75);
+    max-width: 620px;
+    line-height: 1.8;
+    font-size: 15px;
+    margin: 17px 0 0;
+}
+
+.demo-note {
+    min-width: 210px;
+    border-left: 1px solid rgba(255,255,255,.25);
+    padding: 8px 0 8px 23px;
+    margin: 0 5% 5px 0;
+    border-radius: 0;
+    background: transparent;
+    color: white;
+    white-space: normal;
+}
+
+.demo-note::before {
+    content: "FOODCONNECT";
+    display: block;
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 1.6px;
+    font-weight: 800;
+    margin-bottom: 9px;
+}
+
+/* ==========================================
+   STEP GUIDE
+========================================== */
+
+.step-guide {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    border-top: 1px solid rgba(255,255,255,.18);
+    margin-top: 34px;
+    padding-top: 22px;
+    color: rgba(255,255,255,.72);
+    font-size: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.step-guide b {
+    color: var(--gold);
+    margin-right: 6px;
+}
+
+/* ==========================================
+   MAIN FORM LAYOUT
+========================================== */
+
+.donation-layout {
+    width: min(1440px, calc(100% - clamp(44px, 8.4vw, 136px)));
+    margin: -48px auto 0;
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+    gap: 23px;
+    align-items: start;
+    padding: 0 0 70px;
+}
+
+.donation-form,
+.sidebar {
+    min-width: 0;
+    background: var(--white);
+    border-radius: 21px;
+    box-shadow: var(--shadow);
+}
+
+.donation-form {
+    padding: 29px 28px;
+}
+
+.sidebar {
+    padding: 25px;
+    position: sticky;
+    top: 100px;
+}
+
+/* ==========================================
+   FORM SECTION HEADINGS
+========================================== */
+
+.form-section {
+    padding: 0 0 29px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+}
+
+.form-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--green-950);
+    font-size: 24px;
+    margin: 0 0 25px;
+}
+
+/* Retain numbered steps; remove decorative icons */
+.step {
+    width: 30px;
+    height: 30px;
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 30px;
+    border-radius: 9px;
+    background: var(--green-100);
+    color: var(--green-800);
+    font: 700 13px "DM Sans", sans-serif;
+}
+
+/* ==========================================
+   FORM FIELDS
+========================================== */
+
+.field {
+    margin-bottom: 22px;
+}
+
+.field:last-child {
+    margin-bottom: 0;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 9px;
+    color: #29483A;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.field label > span {
+    color: var(--green-600);
+}
+
+.field label small {
+    color: var(--muted);
+    font-weight: 400;
+}
+
+input:not([type="checkbox"]):not([type="file"]),
+select,
+textarea {
+    width: 100%;
+    min-height: 53px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 15px;
+    color: var(--ink);
+    background: #FFFFFF;
+    font: 14px "DM Sans", sans-serif;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+textarea {
+    min-height: 105px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9AA69F;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--green-600);
+    box-shadow: 0 0 0 3px rgba(13,155,104,.09);
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+}
+
+/* ==========================================
+   IMAGE UPLOAD - NO ICONS
+========================================== */
+
+.camera,
+.upload-icon,
+.upload-symbol {
+    display: none !important;
+}
+
+.upload-box {
+    min-height: 155px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    border: 1.5px dashed #9BCDB1;
+    border-radius: 12px;
+    background: #FBFCFA;
+    color: var(--ink);
+    cursor: pointer;
+    text-align: center;
+    padding: 24px;
+    transition: .2s;
+}
+
+.upload-box:hover {
+    background: #F0F8F2;
+    border-color: var(--green-600);
+}
+
+.upload-box strong {
+    color: var(--green-900);
+    font-size: 15px;
+}
+
+.upload-box > span:not(.camera) {
+    color: #687A70;
+    font-size: 13px;
+}
+
+.upload-box small {
+    color: #89968E;
+    font-size: 11px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+}
+/* ==========================================
+   DONATION QR CODE
+========================================== */
+
+.qr-card {
+    margin-top: 24px;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #dce9df;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(7, 61, 45, 0.06);
+}
+
+.qr-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    color: #073d2d;
+    margin-bottom: 10px;
+}
+
+.qr-card p {
+    color: #68776e;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+#donationQRCode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 14px;
+    width: fit-content;
+    background: #ffffff;
+    border: 1px solid #e5ece7;
+    border-radius: 12px;
+}
+
+#donationQRCode img,
+#donationQRCode canvas {
+    display: block;
+    max-width: 100%;
+}
+
+.qr-reference {
+    margin-bottom: 16px;
+}
+
+#downloadQR {
+    border: none;
+    background: #073d2d;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#downloadQR:hover {
+    background: #079765;
+}
+
+/* ==========================================
+   IMAGE PREVIEW
+========================================== */
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 11px;
+    margin-top: 14px;
+}
+
+.photo-thumb {
+    position: relative;
+    height: 95px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+}
+
+.photo-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-thumb button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: 0;
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    background: #FFFFFF;
+    cursor: pointer;
+}
+
+/* ==========================================
+   CONFIRMATION
+========================================== */
+
+.confirm-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #687A70;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.confirm-check input {
+    accent-color: var(--green-600);
+    width: 16px;
+    height: 16px;
+    margin: 2px 0 0;
+    flex: 0 0 auto;
+}
+
+.form-error {
+    min-height: 18px;
+    color: #B42318;
+    font-size: 12px;
+    margin: 8px 0 0;
+}
+
+/* ==========================================
+   FORM BUTTONS
+========================================== */
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.cancel-btn,
+.submit-btn {
+    border: 0;
+    border-radius: 11px;
+    padding: 14px 24px;
+    font: 700 13px "DM Sans", sans-serif;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.cancel-btn {
+    color: var(--green-900);
+    background: var(--green-100);
+}
+
+.cancel-btn:hover {
+    background: #D9EDE1;
+}
+
+.submit-btn {
+    color: white;
+    background: linear-gradient(110deg, #0E9B68, #084632);
+    box-shadow: 0 8px 18px #08734e26;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 22px #08734e35;
+}
+
+/* ==========================================
+   SIDEBAR / DONATION PREVIEW
+========================================== */
+
+.sidebar-heading {
+    margin: 0 0 16px;
+    color: VAR(--forest);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.preview-card {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(20,50,35,.055);
+    background: #FFFFFF;
+}
+
+.preview-image-wrap {
+    height: 215px;
+    position: relative;
+    background: #E8EEE9;
+}
+
+.preview-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 8px 12px;
+    border-radius: 7px;
+    background: #FFFFFF;
+    color: var(--green-900);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.preview-content {
+    padding: 23px;
+}
+
+.preview-kicker {
+    margin: 0 0 7px;
+    color: var(--forest);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.preview-content h3 {
+    margin: 0 0 19px;
+    color: var(--forest);
+    font-size: 25px;
+    line-height: 1.25;
+}
+
+.preview-line {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    color: #718078;
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0 0 12px;
+    overflow-wrap: anywhere;
+}
+
+/* Remove icon elements inside preview details */
+.preview-line i,
+.preview-line svg,
+.preview-line .icon,
+.preview-line .emoji {
+    display: none !important;
+}
+
+.preview-divider {
+    border-top: 1px solid var(--line);
+    margin: 19px 0 16px;
+}
+
+.availability {
+    color: var(--forest);
+    font-size: 12px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.availability span {
+    display: none;
+}
+.preview-image-wrap[hidden] {
+    display: none !important;
+}
+
+.preview-image-wrap {
+    width: 100%;
+    height: 215px;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    border-radius: 12px;
+}
+
+.preview-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================
+   FOOD DONATION GUIDELINES
+========================================== */
+
+.care-note {
+    margin-top: 24px;
+    padding: 21px;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    background: #FBFCFA;
+    color: #718078;
+    font-size: 12px;
+}
+
+.care-note h4 {
+    margin: 0 0 12px;
+    color: var(--green-900);
+    font-size: 14px;
+}
+
+.care-note ul {
+    padding-left: 18px;
+    margin: 0;
+}
+
+.care-note li {
+    margin: 0 0 9px;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   TOAST
+========================================== */
+
+.toast {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    padding: 13px 20px;
+    border-radius: 10px;
+    background: var(--green-950);
+    color: white;
+    box-shadow: 0 8px 25px #0002;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s;
+    z-index: 30;
+    font-size: 13px;
+    width: max-content;
+    max-width: 90%;
+    text-align: center;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1000px) {
+    .donation-layout {
+        grid-template-columns: minmax(0, 1fr) 300px;
+        gap: 18px;
+    }
+
+    .donation-form,
+    .sidebar {
+        padding: 21px;
+    }
+}
+
+@media (max-width: 760px) {
+    .site-header {
+        height: 72px;
+        padding: 0 5%;
+    }
+
+    .main-nav {
+        gap: 15px;
+    }
+
+    .main-nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 38px 5% 85px;
+    }
+
+    .hero-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .demo-note {
+        margin: 0;
+    }
+
+    .donation-layout {
+        width: 92%;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .donation-form,
+    .sidebar {
+        width: 100%;
+    }
+
+    .sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 580px) {
+    .site-header {
+        height: 68px;
+    }
+
+    .brand {
+        font-size: 20px;
+    }
+
+    .hero {
+        padding: 29px 5% 78px;
+    }
+
+    h1 {
+        font-size: 37px;
+    }
+
+    .hero-subtitle {
+        font-size: 13px;
+    }
+
+    .step-guide {
+        gap: 13px 20px;
+    }
+
+    .donation-layout {
+        margin-top: -40px;
+        padding-bottom: 45px;
+    }
+
+    .donation-form,
+    .sidebar {
+        padding: 19px 16px;
+        border-radius: 16px;
+    }
+
+    .form-section h2 {
+        font-size: 21px;
+    }
+
+    .two-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .form-actions {
+        flex-wrap: wrap;
+    }
+
+    .cancel-btn,
+    .submit-btn {
+        flex: 1;
+    }
+
+    .preview-image-wrap {
+        height: 190px;
+    }
+}
+.location-button {
+    margin-top: 12px;
+    padding: 12px 18px;
+    border: 1px solid #079765;
+    border-radius: 8px;
+    background: #eaf6ef;
+    color: #087b55;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.location-button:hover {
+    background: #087b55;
+    color: white;
+}
+
+.location-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.location-message {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.location-message.success {
+    color: #087b55;
+}
+
+.location-message.error {
+    color: #dc2626;
+}

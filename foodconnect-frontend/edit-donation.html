@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edit your FoodConnect donation.">
+    <title>Edit Donation | FoodConnect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="donation.css">
+    <script src="edit-donation.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html" aria-label="FoodConnect home">
+        <span class="brand-mark"><img src = "assets/Food_Connect_Logo.png"></span>
+        <span>FoodConnect</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="donation.html">Donate Food</a>
+        <a class="active" href="donor-dashboard.html">Donor Dashboard</a>
+    </nav>
+
+    <a class="outline-btn" href="donor-dashboard.html">Back to dashboard ↗</a>
+
+    <button class="menu-toggle" id="menuToggle"
+            type="button" aria-label="Toggle navigation"
+            aria-expanded="false">☰</button>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <p class="breadcrumb">
+                <a href="index.html">Home</a> /
+                <a href="donor-dashboard.html">Dashboard</a> /
+                Edit donation
+            </p>
+
+            <p class="eyebrow">UPDATE YOUR FOOD LISTING</p>
+
+            <div class="hero-row">
+                <div>
+                    <h1>Edit donation</h1>
+                    <p class="hero-subtitle">
+                        Update your donation details while it is still available.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-guide">
+                <span><b>01</b> Food details</span>
+                <span><b>02</b> Freshness and pickup</span>
+                <span><b>03</b> Review and save</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="container donation-layout" id="donation-form">
+
+        <form class="donation-form" id="editDonationForm" novalidate>
+
+            <section class="form-section">
+                <h2><span class="step">1</span>Food details</h2>
+
+                <div class="field">
+                    <label for="foodName">Food name <span>*</span></label>
+                    <input id="foodName" name="foodName" type="text"
+                           maxlength="100" required>
+                </div>
+
+                <div class="field">
+                    <label for="category">Food category <span>*</span></label>
+                    <select id="category" name="category" required>
+                        <option value="">Select category</option>
+                        <option value="Cooked meals">Cooked meals</option>
+                        <option value="Fruits & vegetables">Fruits and vegetables</option>
+                        <option value="Bakery">Bakery</option>
+                        <option value="Dairy">Dairy</option>
+                        <option value="Packaged food">Packaged food</option>
+                        <option value="Grains & pulses">Grains and pulses</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="two-columns">
+                    <div class="field">
+                        <label for="quantity">Quantity <span>*</span></label>
+                        <input id="quantity" name="quantity" type="number"
+                               min="0.1" step="0.1" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="unit">Unit <span>*</span></label>
+                        <select id="unit" name="unit" required>
+                            <option value="Meals / servings">Meals / servings</option>
+                            <option value="Kilograms">Kilograms</option>
+                            <option value="Grams">Grams</option>
+                            <option value="Litres">Litres</option>
+                            <option value="Millilitres">Millilitres</option>
+                            <option value="Packets">Packets</option>
+                            <option value="Boxes">Boxes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="details">
+                        Ingredients and additional details
+                        <small>(optional)</small>
+                    </label>
+                    <textarea id="details" name="details" rows="4"
+                              maxlength="2000"
+                              placeholder="Ingredients, allergens, packaging or pickup instructions"></textarea>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2><span class="step">2</span>Freshness and pickup</h2>
+
+                <div class="two-columns">
+                    <div class="field">
+                        <label for="preparedAt">
+                            Preparation date and time <span>*</span>
+                        </label>
+                        <input id="preparedAt" name="preparedAt"
+                               type="datetime-local" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="expiresAt">
+                            Expiry date and time <span>*</span>
+                        </label>
+                        <input id="expiresAt" name="expiresAt"
+                               type="datetime-local" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="pickupLocation">
+                        Pickup location <span>*</span>
+                    </label>
+                    <input id="pickupLocation" name="pickupLocation"
+                           type="text" maxlength="250" required>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2><span class="step">3</span>Review and save</h2>
+
+                <p style="color:#718078; font-size:13px; line-height:1.6;">
+                    Check that your food details, preparation time,
+                    expiry time and pickup location are accurate.
+                </p>
+
+                <p style="color:#718078; font-size:13px; line-height:1.6;">
+                    Food photos are not changed from this page.
+                </p>
+            </section>
+
+            <div class="form-footer">
+                <label class="confirm-check" for="safeConfirm">
+                    <input id="safeConfirm" name="safeConfirm"
+                           type="checkbox" required>
+                    <span>
+                        I confirm this food is safe to consume and
+                        the updated details are accurate.
+                    </span>
+                </label>
+
+                <p class="form-error" id="formError" role="alert"></p>
+
+                <div class="form-actions">
+                    <button class="cancel-btn" id="cancelEdit"
+                            type="button">Cancel</button>
+
+                    <button class="submit-btn" type="submit">
+                        Save changes <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <aside class="sidebar">
+            <p class="sidebar-heading">UPDATED DONATION PREVIEW</p>
+
+            <article class="preview-card">
+                <div class="preview-image-wrap">
+                    <img id="mainPreviewImage"
+                         src="https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+                         alt="Prepared food in serving trays">
+
+                    <span class="image-label">Donation preview</span>
+                </div>
+
+                <div class="preview-content">
+                    <p class="preview-kicker">FOOD DONATION</p>
+
+                    <h3 id="previewName">Loading donation...</h3>
+
+                    <p class="preview-line">
+                         <span id="previewQuantity">Loading...</span>
+                    </p>
+
+                    <p class="preview-line">
+                         <span id="previewLocation">Loading...</span>
+                    </p>
+
+                    <p class="preview-line">
+                         <span id="previewPrepared">Loading...</span>
+                    </p>
+
+                    <p class="preview-line">
+                        <span id="previewExpiry">Loading...</span>
+                    </p>
+
+                    <div class="preview-divider"></div>
+
+                    <p class="availability">
+                        <span></span>Available for pickup
+                    </p>
+                </div>
+            </article>
+
+            <div class="care-note">
+                <h4>♡ Share with care</h4>
+                <ul>
+                    <li>Keep food covered and stored safely.</li>
+                    <li>Include allergens and clear pickup instructions.</li>
+                    <li>Allow enough time for pickup before expiry.</li>
+                </ul>
+            </div>
+        </aside>
+    </section>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

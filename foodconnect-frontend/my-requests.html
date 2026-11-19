@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#073d2d">
+
+    <title>My Requests | FoodConnect</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Page Stylesheet -->
+    <link rel="stylesheet" href="my-requests.css">
+
+</head>
+
+<body>
+
+    <!-- =========================================
+         NAVIGATION BAR
+    ========================================== -->
+
+    <header class="navbar">
+
+        <a href="find-food.html" class="logo">
+
+            <span class="logo-icon">
+                <img src="assets/Food_Connect_Logo.png"
+                    alt="FoodConnect Logo">
+            </span>
+
+            FoodConnect
+
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="find-food.html">Find Food</a>
+            <a href="my-requests.html" class="active">My Requests</a>
+            <a href="profile.html">My Profile</a>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================
+         HERO SECTION
+    ========================================== -->
+
+    <section class="hero">
+
+        <p class="eyebrow">YOUR FOOD JOURNEY</p>
+
+        <h1>My Requests</h1>
+
+        <p class="subtitle">
+            Track your food requests, cancel pending requests,
+            or request a donation again.
+        </p>
+
+    </section>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =====================================
+             REQUEST SUMMARY
+        ====================================== -->
+
+        <section class="summary-grid">
+
+            <div class="summary-card">
+
+                <span>Total Requests</span>
+
+                <strong id="totalRequests">0</strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>Pending</span>
+
+                <strong id="pendingRequests">0</strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>Approved</span>
+
+                <strong id="approvedRequests">0</strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>Cancelled</span>
+
+                <strong id="cancelledRequests">0</strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             APPROVED DONATION QR CODES
+        ====================================== -->
+
+
+        <!-- =====================================
+             MY REPORTS SECTION
+        ====================================== -->
+
+        <section class="my-reports-section">
+
+            <div class="reports-content">
+
+                <p class="eyebrow">
+                    YOUR ACTIVITY
+                </p>
+
+                <h2>My Reports</h2>
+
+                <p>
+                    View your donation request statistics, track
+                    approved requests and explore your food
+                    redistribution activity.
+                </p>
+
+                <a href="reports.html" class="reports-btn">
+
+                    View My Reports
+
+                    <span aria-hidden="true">→</span>
+
+                </a>
+
+            </div>
+
+
+            <div class="reports-visual">
+
+                <div class="reports-visual-card">
+
+                    <div class="reports-line"></div>
+
+                    <div class="reports-line short"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             REQUEST HISTORY
+        ====================================== -->
+
+        <section class="requests-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        REQUEST HISTORY
+                    </p>
+
+                    <h2>Your donation requests</h2>
+
+                </div>
+
+
+                <a href="find-food.html" class="browse-btn">
+
+                    + Find Food
+
+                </a>
+
+            </div>
+
+
+            <!-- STATUS FILTER -->
+
+            <div class="filter-bar">
+
+                <label for="statusFilter">
+                    Filter by status:
+                </label>
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All requests
+                    </option>
+
+                    <option value="Requested">
+                        Requested
+                    </option>
+
+                    <option value="Approved">
+                        Approved
+                    </option>
+
+                    <option value="Rejected">
+                        Rejected
+                    </option>
+
+                    <option value="Cancelled">
+                        Cancelled
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- LOADING MESSAGE -->
+
+            <div id="loadingMessage" class="message">
+
+                Loading your requests...
+
+            </div>
+
+
+            <!-- REQUEST CARDS -->
+
+            <div id="requestGrid" class="request-grid">
+
+            </div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div id="emptyState"
+                class="empty-state"
+                hidden>
+
+                <h2>No requests found</h2>
+
+                <p>
+                    You haven't requested any donations yet.
+                </p>
+
+                <a href="find-food.html" class="browse-btn">
+
+                    Browse Donations
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         TOAST NOTIFICATION
+    ========================================== -->
+
+    <div id="toast" class="toast"></div>
+
+
+    <!-- =========================================
+         QR CODE LIBRARY
+    ========================================== -->
+<!-- QR Code Library -->
+    <!-- =========================================
+         PAGE JAVASCRIPT
+    ========================================== -->
+
+    <script type = "module" src="my-requests.js"></script>
+
+
+</body>
+
+</html>

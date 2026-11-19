@@ -1,0 +1,1042 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+/* =========================================
+   ROOT VARIABLES
+========================================= */
+
+:root {
+    --forest: #073D2D;
+    --forest-dark: #052F23;
+    --green: #079765;
+    --cream: #FBF6EC;
+    --white: #FFFFFF;
+    --muted: #718078;
+    --border: #DFE8E1;
+
+    --light-green: #F0F8F3;
+    --shadow: 0 12px 28px rgba(7, 61, 45, .10);
+}
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--forest);
+    background: white;
+}
+
+a {
+    text-decoration: none;
+    color: var(--green);
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+/* =========================================
+   AUTHENTICATION LAYOUT
+========================================= */
+
+.auth-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* =========================================
+   BRAND ICON
+========================================= */
+
+.brand-icon {
+    width: 43px;
+    height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    background: white;
+    flex-shrink: 0;
+}
+
+.brand-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.brand-icon svg {
+    width: 29px;
+    height: 29px;
+    display: block;
+}
+
+/* =========================================
+   LEFT VISUAL SECTION
+========================================= */
+
+.auth-visual {
+    min-height: 100vh;
+    padding: 45px 48px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+.register-visual {
+    background-image:
+        linear-gradient(
+            0deg,
+            rgba(2, 42, 29, .94),
+            rgba(2, 42, 29, .22)
+        ),
+        url("assets/fresh-produce.jpg");
+}
+
+.login-visual {
+    background-image:
+        linear-gradient(
+            0deg,
+            rgba(2, 42, 29, .94),
+            rgba(2, 42, 29, .22)
+        ),
+        url("assets/Landing_Page_Image.png");
+}
+
+/* BRAND NAME */
+
+.auth-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #FFFFFF;
+
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 800;
+
+    width: fit-content;
+}
+
+/* VISUAL CONTENT */
+
+.visual-content {
+    max-width: 620px;
+    margin-top: auto;
+}
+
+.visual-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 48px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.visual-content p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #E4EEE8;
+    max-width: 470px;
+    margin-bottom: 25px;
+}
+
+.visual-content ul {
+    list-style: none;
+    display: grid;
+    gap: 17px;
+}
+
+.visual-content li {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* =========================================
+   LOGIN STATISTICS
+========================================= */
+
+.login-stats {
+    display: flex;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.login-stat {
+    min-width: 110px;
+
+    background: rgba(255, 255, 255, .17);
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 16px;
+
+    padding: 15px;
+
+    backdrop-filter: blur(10px);
+}
+
+.login-stat strong {
+    display: block;
+    font: 700 23px 'Playfair Display', serif;
+}
+
+.login-stat span {
+    display: block;
+    font-size: 11px;
+    margin-top: 5px;
+    color: #E0EAE4;
+}
+
+/* =========================================
+   RIGHT AUTHENTICATION PANEL
+========================================= */
+
+.auth-panel {
+    min-height: 100vh;
+
+    padding: 45px clamp(35px, 7vw, 100px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+}
+
+.auth-content {
+    width: 100%;
+    max-width: 480px;
+}
+
+/* =========================================
+   TOP NAVIGATION
+========================================= */
+
+.auth-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.auth-top p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.auth-top p a {
+    font-weight: 700;
+}
+
+.back-btn {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 15px;
+    background: white;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--forest);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
+
+    transition: .2s;
+}
+
+.back-btn:hover {
+    background: var(--light-green);
+    transform: translateX(-3px);
+}
+
+/* =========================================
+   AUTH HEADING
+========================================= */
+
+.auth-heading {
+    margin-bottom: 29px;
+}
+
+.auth-heading h2 {
+    font: 800 37px 'Playfair Display', serif;
+    margin-bottom: 8px;
+}
+
+.auth-heading p {
+    font-size: 15px;
+    color: var(--muted);
+}
+
+/* =========================================
+   PROGRESS BAR
+========================================= */
+
+.progress-track {
+    height: 5px;
+    background: #E3E9E2;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.progress-track span {
+    display: block;
+    width: 50%;
+    height: 100%;
+
+    border-radius: 10px;
+    background: var(--green);
+
+    transition: width .3s ease;
+}
+
+/* =========================================
+   FORM ELEMENTS
+========================================= */
+
+.field-label,
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--forest-dark);
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group input {
+    width: 100%;
+    height: 57px;
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    padding: 0 17px;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    color: var(--forest);
+    background: white;
+
+    outline: none;
+
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.form-group input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(7, 151, 101, .10);
+}
+
+.form-group input::placeholder {
+    color: #9CA9A1;
+    opacity: 1;
+}
+
+/* =========================================
+   ROLE SELECTION
+========================================= */
+
+
+/* =========================================
+   ROLE SELECTION - PLAIN TEXT DESIGN
+========================================= */
+
+.role-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin: 16px 0 25px;
+}
+
+.role-card {
+    position: relative;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7px 6px;
+
+    background: #FFFFFF;
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+
+    font-family: inherit;
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: .3s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-5px);
+   
+    box-shadow: 0 8px 20px rgba(7, 61, 45, .08);
+}
+
+.role-card.selected {
+    background: #FFFFFF;
+    
+    box-shadow: 0 5px 16px rgba(7, 61, 45, .07);
+}
+
+/* TEXT AREA */
+
+.role-art {
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    background: transparent;
+    border-radius: 0;
+}
+
+/* ROLE NUMBERS */
+
+.art-number {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    font-weight: 700;
+
+    color: #A0ACA4;
+}
+
+/* ROLE WORDS */
+
+.art-word {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(15px, 1.7vw, 22px);
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    transition: transform .3s ease;
+}
+
+/* ROLE-SPECIFIC TEXT COLORS */
+
+.donor-art,.ngo-art,.volunteer-art
+{
+    color:var(--forest);
+}
+
+/* SUBTITLES */
+
+.art-subtitle {
+    margin-top: 7px;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    color: var(--muted);
+    letter-spacing: .2px;
+    text-align: center;
+}
+
+/* HOVER EFFECT */
+
+.role-card:hover .art-word {
+    transform: scale(1.08);
+}
+
+/* ROLE LABELS */
+
+.role-name {
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--forest);
+}
+
+.role-description {
+    margin-top: 4px;
+    font-size: 10px;
+    color: var(--muted);
+    text-align: center;
+}
+
+/* SELECTION INDICATOR */
+
+.role-selection {
+    position: absolute;
+    top: 8px;
+    left: 11px;
+
+    width: 20px;
+    height: 20px;
+background-color: var(--forest);
+    display: grid;
+    place-items: center;
+
+    color: #FFFFFF;
+
+    border-radius: 50%;
+    font-size: 12px;
+
+    opacity: 0;
+    transform: scale(.5);
+
+    transition: .25s ease;
+}
+
+.role-card.selected .role-selection {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* KEYBOARD ACCESSIBILITY */
+
+.role-card:focus-visible {
+    outline: 3px solid rgba(7, 151, 101, .25);
+    outline-offset: 3px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .role-grid {
+        gap: 8px;
+    }
+
+    .role-card {
+        padding: 8px 5px;
+    }
+
+    .role-art {
+        height: 95px;
+    }
+
+    .art-word {
+        font-size: 15px;
+    }
+
+    .art-subtitle {
+        font-size: 8px;
+    }
+
+    .role-name {
+        font-size: 13px;
+    }
+
+    .role-description {
+        font-size: 9px;
+    }
+}
+
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.submit-btn {
+    width: 100%;
+    min-height: 52px;
+
+    border: none;
+    border-radius: 14px;
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    background: linear-gradient(110deg, #0BA66E, #064C37);
+
+    box-shadow: 0 9px 18px rgba(7, 121, 76, .19);
+
+    transition: .2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 22px rgba(7, 121, 76, .26);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   PASSWORD INPUT
+========================================= */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 52px;
+}
+
+/* PASSWORD VISIBILITY BUTTON */
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+
+    transform: translateY(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    padding: 4px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: transparent;
+    color: var(--muted);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.password-toggle:hover {
+    color: var(--green);
+    background: #EEF8F2;
+}
+
+.password-toggle svg {
+    width: 21px;
+    height: 21px;
+    display: block;
+}
+
+/* =========================================
+   LOGIN OPTIONS
+========================================= */
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 20px 0;
+
+    font-size: 13px;
+}
+
+.remember-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.remember-option input {
+    accent-color: var(--green);
+    width: 16px;
+    height: 16px;
+}
+
+/* =========================================
+   DIVIDER AND SOCIAL BUTTONS
+========================================= */
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin: 22px 0;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.social-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.social-btn {
+    height: 51px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+    color: var(--forest);
+
+    transition: .2s;
+}
+
+.social-btn:hover {
+    border-color: var(--green);
+    background: #F0F8F3;
+}
+
+/* =========================================
+   REGISTRATION STEP 2
+========================================= */
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.step-description {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    color: var(--green);
+}
+
+/* TERMS */
+
+.terms-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+
+    font-size: 12px;
+    color: var(--muted);
+
+    margin-bottom: 20px;
+
+    line-height: 1.5;
+}
+
+.terms-row input {
+    accent-color: var(--green);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/* STEP BUTTONS */
+
+.step-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.previous-btn {
+    padding: 0 20px;
+
+    border: 1px solid var(--border);
+    background: white;
+
+    color: var(--forest);
+
+    border-radius: 13px;
+
+    font-family: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.previous-btn:hover {
+    border-color: var(--green);
+    background: var(--light-green);
+}
+
+.step-buttons .submit-btn {
+    flex: 1;
+}
+
+/* =========================================
+   FOOTER TEXT
+========================================= */
+
+.bottom-auth-text {
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.bottom-auth-text a {
+    font-weight: 700;
+}
+
+/* =========================================
+   TOAST NOTIFICATION
+========================================= */
+
+.auth-toast {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+
+    transform: translate(-50%, 20px);
+
+    padding: 13px 20px;
+
+    background: var(--forest);
+    color: white;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: .25s;
+
+    z-index: 100;
+}
+
+.auth-toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.role-card:focus-visible,
+.password-toggle:focus-visible,
+.submit-btn:focus-visible,
+.previous-btn:focus-visible,
+.back-btn:focus-visible,
+.social-btn:focus-visible {
+    outline: 3px solid rgba(7, 151, 101, .28);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .auth-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-visual {
+        min-height: 350px;
+        padding: 30px;
+    }
+
+    .visual-content h1 {
+        font-size: 36px;
+        margin-top: 24px;
+    }
+
+    .visual-content ul {
+        gap: 10px;
+    }
+
+    .auth-panel {
+        min-height: auto;
+        padding: 50px 25px;
+    }
+
+    .auth-content {
+        max-width: 520px;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .role-grid {
+        gap: 8px;
+    }
+
+    .role-card {
+        padding: 8px 5px;
+    }
+
+    .role-art {
+        height: 100px;
+    }
+
+    .art-word {
+        font-size: 15px;
+    }
+
+    .art-subtitle {
+        font-size: 8px;
+    }
+
+    .role-name {
+        font-size: 13px;
+    }
+
+    .role-description {
+        font-size: 9px;
+    }
+
+    .role-selection {
+        top: 12px;
+        left: 12px;
+
+        width: 19px;
+        height: 19px;
+    }
+    .visual-content h1
+    {
+        margin-top: 24px;;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE SCREENS
+========================================= */
+
+@media (max-width: 480px) {
+
+    .auth-visual {
+        min-height: 310px;
+        padding: 25px;
+    }
+
+    .visual-content h1 {
+        font-size: 30px;
+        margin-top: 24px;
+    }
+
+    .visual-content p {
+        font-size: 14px;
+    }
+
+    .visual-content li {
+        font-size: 12px;
+    }
+
+    .auth-panel {
+        padding: 35px 20px;
+    }
+
+    .auth-heading h2 {
+        font-size: 32px;
+    }
+
+    .role-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .role-card {
+        min-width: 0;
+        padding: 8px 4px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .login-stats {
+        gap: 8px;
+    }
+
+    .login-stat {
+        min-width: 0;
+        padding: 11px;
+        flex: 1;
+    }
+
+    .login-stat strong {
+        font-size: 18px;
+    }
+
+    .social-buttons {
+        gap: 8px;
+    }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

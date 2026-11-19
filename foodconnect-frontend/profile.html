@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | FoodConnect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-icon">
+                <img src="assets/Food_Connect_Logo.png"
+                     alt="FoodConnect Logo">
+            </span>
+
+            <span class="logo-highlight">FoodConnect</span>
+
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <!-- Donor only -->
+            <a href="donation.html"
+               id="donateLink"
+               hidden>
+                Donate Food
+            </a>
+
+            <!-- NGO only -->
+            <a href="find-food.html"
+               id="searchFoodLink"
+               hidden>
+                Search Food
+            </a>
+
+            <!-- Volunteer only -->
+            <a href="food_delivery.html"
+               id="pickupDeliveryLink"
+               hidden>
+                Pickup &amp; Delivery
+            </a>
+
+            <!-- All registered roles -->
+            <a href="maps.html"
+               id="mapLocationsLink"
+               hidden>
+                Map &amp; Locations
+            </a>
+
+        </nav>
+
+        <button class="logout-btn" id="logoutBtn" type="button">
+            Logout
+        </button>
+
+    </header>
+
+
+    <!-- PROFILE MAIN CONTENT -->
+    <main class="profile-container">
+
+        <section class="page-heading">
+
+            <div>
+                <span class="eyebrow">YOUR ACCOUNT</span>
+
+                <h1>My Profile</h1>
+
+                <p>
+                    Manage your personal information and account preferences.
+                </p>
+            </div>
+
+            <div class="heading-icon">✦</div>
+
+        </section>
+
+
+        <!-- PROFILE BANNER -->
+        <section class="profile-banner">
+
+            <div class="avatar" id="avatar">U</div>
+
+            <div class="banner-info">
+
+                <h2 id="displayName">Your Name</h2>
+
+                <p id="displayEmail">your@email.com</p>
+
+                <span class="role-badge" id="displayRole">
+                    MEMBER
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE FORM -->
+        <form id="profileForm">
+
+            <div class="profile-grid">
+
+                <!-- PERSONAL INFORMATION -->
+                <section class="profile-card">
+
+                    <div class="card-heading">
+
+                        <div class="card-icon">👤</div>
+
+                        <div>
+                            <h3>Personal Information</h3>
+
+                            <p>
+                                Update your basic personal details.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="name">Full Name</label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="email">Email Address</label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                disabled
+                            >
+
+                            <small>Email cannot be changed here.</small>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="phone">Phone Number</label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter phone number"
+                                pattern="[0-9+\-\s]{10,15}"
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="role">Account Type</label>
+
+                            <input
+                                type="text"
+                                id="role"
+                                disabled
+                            >
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- LOCATION DETAILS -->
+                <section class="profile-card">
+
+                    <div class="card-heading">
+
+                        <div class="card-icon">📍</div>
+
+                        <div>
+                            <h3>Location Details</h3>
+
+                            <p>
+                                Help us connect you with nearby food donations.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group full-width">
+
+                            <label for="address">Street Address</label>
+
+                            <textarea
+                                id="address"
+                                name="address"
+                                placeholder="Enter your complete address"
+                                rows="3"
+                            ></textarea>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="city">City</label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                placeholder="Enter city"
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="state">State</label>
+
+                            <input
+                                type="text"
+                                id="state"
+                                name="state"
+                                placeholder="Enter state"
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="pincode">PIN Code</label>
+
+                            <input
+                                type="text"
+                                id="pincode"
+                                name="pincode"
+                                placeholder="Enter PIN code"
+                                pattern="[0-9]{6}"
+                                maxlength="6"
+                            >
+
+                        </div>
+
+
+                        <!-- NGO GPS LOCATION -->
+                        <div class="form-group full-width"
+                             id="ngoLocationSection"
+                             hidden>
+
+                            <div class="location-divider"></div>
+
+                            <label>NGO GPS Location</label>
+
+                            <p class="location-description">
+                                Save your organisation's geographical
+                                location to help volunteers find your NGO.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="location-btn"
+                                id="getLocationBtn"
+                            >
+                                <span>◎</span>
+                                Use My Current Location
+                            </button>
+
+                            <p
+                                id="locationMessage"
+                                class="location-message"
+                                role="status"
+                            >
+                                Your location has not been captured yet.
+                            </p>
+
+                            <div class="coordinate-grid">
+
+                                <div class="form-group">
+
+                                    <label for="latitude">Latitude</label>
+
+                                    <input
+                                        type="text"
+                                        id="latitude"
+                                        readonly
+                                        placeholder="Not available"
+                                    >
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="longitude">Longitude</label>
+
+                                    <input
+                                        type="text"
+                                        id="longitude"
+                                        readonly
+                                        placeholder="Not available"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                            <small class="coordinate-note">
+                                Click Save Changes after capturing
+                                your current location.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ABOUT ME -->
+                <section class="profile-card">
+
+                    <div class="card-heading">
+
+                        <div class="card-icon">📝</div>
+
+                        <div>
+                            <h3>About Me</h3>
+
+                            <p>
+                                Tell others a little about yourself
+                                or your organisation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="bio">Description</label>
+
+                        <textarea
+                            id="bio"
+                            name="bio"
+                            rows="4"
+                            maxlength="500"
+                            placeholder="Write a short description..."
+                        ></textarea>
+
+                        <small>Maximum 500 characters.</small>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ACCOUNT PREFERENCES -->
+                <section class="profile-card">
+
+                    <div class="card-heading">
+
+                        <div class="card-icon">🔔</div>
+
+                        <div>
+                            <h3>Account Preferences</h3>
+
+                            <p>
+                                Choose how you want to receive updates.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="preference-row">
+
+                        <div>
+                            <strong>Email Notifications</strong>
+
+                            <p>
+                                Receive updates about donations and requests.
+                            </p>
+                        </div>
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="emailNotifications"
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+                    <div class="preference-row">
+
+                        <div>
+                            <strong>SMS Notifications</strong>
+
+                            <p>
+                                Receive important updates on your phone.
+                            </p>
+                        </div>
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="smsNotifications"
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- FORM ACTIONS -->
+            <div class="form-actions">
+
+                <span id="formMessage" role="status"></span>
+
+                <button
+                    type="reset"
+                    class="cancel-btn"
+                    id="resetBtn"
+                >
+                    Reset
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                    id="saveBtn"
+                >
+                    Save Changes <span>→</span>
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- ROLE-BASED NOTIFICATIONS -->
+        
+
+        <!-- FOOTER -->
+        <footer class="profile-footer">
+
+            <p>
+                Small actions. Big impact.
+                Together for a hunger-free world.
+            </p>
+
+            <span>© 2026 FoodConnect</span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="profile.js"></script>
+
+</body>
+</html>
