@@ -22,27 +22,17 @@ const app = express();
 // CORS CONFIGURATION
 // ==========================================
 
+
 const allowedOrigins = [
-    "https://food-connect-qnuq.onrender.com:5500",
+    "http://127.0.0.1:5500",
     "http://localhost:5500",
-    process.env.FRONTEND_URL
-].filter(Boolean);
+    "https://food-connect-frontend-c965.onrender.com"
+];
 
 app.use(cors({
-    origin: function (origin, callback) {
-
-        // Allow requests without an Origin header
-        if (!origin) {
-            return callback(null, true);
-        }
-
-        // Allow registered frontend origins
-        if (allowedOrigins.includes(origin)) {
-            return callback(null, true);
-        }
-
-        return callback(new Error("Not allowed by CORS"));
-    }
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 // ==========================================
