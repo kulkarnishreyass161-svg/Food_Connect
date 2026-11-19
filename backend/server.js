@@ -23,7 +23,7 @@ const app = express();
 // ==========================================
 
 const allowedOrigins = [
-    "http://https://food-connect-qnuq.onrender.com:5500",
+    "https://food-connect-qnuq.onrender.com:5500",
     "http://localhost:5500",
     process.env.FRONTEND_URL
 ].filter(Boolean);
