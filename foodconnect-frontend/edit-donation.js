@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const API_URL = "http://localhost:5000/api/donations";
+    const API_URL = "https://food-connect-qnuq.onrender.com/api/donations";
 
     const form = document.getElementById("editDonationForm");
     const formError = document.getElementById("formError");

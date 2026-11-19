@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5000/api/admin";
+const API_BASE = "https://food-connect-qnuq.onrender.com/api/admin";
 
 const token =
     localStorage.getItem("token") ||

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         const response = await fetch(
-            "http://localhost:5000/api/auth/verify-email",
+            "https://food-connect-qnuq.onrender.com/api/auth/verify-email",
             {
                 method: "POST",
                 headers: {

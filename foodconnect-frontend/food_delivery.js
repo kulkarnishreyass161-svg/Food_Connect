@@ -1,6 +1,6 @@
 
-const API_URL = "http://localhost:5000/api/deliveries";
-const REPORTS_API_URL = "http://localhost:5000/api/reports";
+const API_URL = "https://food-connect-qnuq.onrender.com/api/deliveries";
+const REPORTS_API_URL = "https://food-connect-qnuq.onrender.com/api/reports";
 
 // ==========================================
 // AUTHENTICATION

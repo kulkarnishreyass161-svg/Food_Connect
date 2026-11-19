@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // API CONFIGURATION
     // ==========================================
 
-    const API_URL = "http://localhost:5000/api/requests";
+    const API_URL = "https://food-connect-qnuq.onrender.com/api/requests";
 
 
     // ==========================================

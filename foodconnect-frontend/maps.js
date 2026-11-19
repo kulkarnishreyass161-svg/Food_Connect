@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // API CONFIGURATION
     // ==========================================
 
-    const API = "http://localhost:5000/api";
+    const API = "https://food-connect-qnuq.onrender.com/api";
 
     const token =
         localStorage.getItem("token") ||

@@ -6,7 +6,7 @@
 import { upload } from "https://esm.sh/@imagekit/javascript@5.0.0";
 import QRCode from "https://esm.sh/qrcode@1.5.4";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://food-connect-qnuq.onrender.com/api";
 
 // ==========================================
 // FORM ELEMENTS
